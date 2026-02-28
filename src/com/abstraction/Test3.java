@@ -12,12 +12,14 @@ interface Payment3 {
 }
 
 class UPI3 implements Payment3 {
+	@Override
     public void pay(double amount) {
         System.out.println("Paid - " + amount + " using UPI.");
     }
 }
 
 class CreditCard3 implements Payment3 {
+	@Override
     public void pay(double amount) {
         System.out.println("Paid - " + amount + " using Credit Card.");
     }
@@ -28,7 +30,7 @@ public class Test3 {
 
         double amount = 5000;
         Payment3 p = new UPI3();
-        if (Payment3.validateAmount(amount)) {   // ✅ Call using interface name
+        if (Payment3.validateAmount(amount)) {  
             p.pay(amount);
             p.generateReceipt(amount);
             System.out.println("Valid amount");
