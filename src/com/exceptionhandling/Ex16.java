@@ -23,7 +23,7 @@ public class Ex16 {
 		int age = sc.nextInt();
 		try {
 			if (age < 18) {
-				throw new underAgeException("you are Not Eligible To Vote");
+				throw new underAgeException("no");
 			} else {
 				System.out.println("you are Eligible To Vote");
 			}
