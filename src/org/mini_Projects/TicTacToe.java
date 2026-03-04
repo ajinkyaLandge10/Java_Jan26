@@ -1,4 +1,4 @@
-package mini_Projects;
+package org.mini_Projects;
 
 import java.awt.*;
 import java.awt.event.*;

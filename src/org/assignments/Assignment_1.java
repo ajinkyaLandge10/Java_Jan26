@@ -1,4 +1,4 @@
-package assignments;
+package org.assignments;
 
 public class Assignment_1 {
 

@@ -1,4 +1,4 @@
-package mini_Projects;
+package org.mini_Projects;
 
 import java.util.Scanner;
 import java.util.Random;

@@ -7,8 +7,8 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 public class Calculator {
-    int boardWidth = 360;
-    int boardHeight = 540;
+    int boardWidth = 420;
+    int boardHeight = 600;
 
     Color customLightGray = new Color(212, 212, 210);
     Color customDarkGray = new Color(80, 80, 80);
@@ -39,18 +39,20 @@ public class Calculator {
         // frame.setVisible(true);
         frame.setSize(boardWidth, boardHeight);
         frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         displayLabel.setBackground(customBlack);
         displayLabel.setForeground(Color.white);
-        displayLabel.setFont(new Font("Arial", Font.PLAIN, 80));
+        displayLabel.setFont(new Font("Arial", Font.PLAIN, 50));
+        displayLabel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
         displayLabel.setHorizontalAlignment(JLabel.RIGHT);
         displayLabel.setText("0");
         displayLabel.setOpaque(true);
 
         displayPanel.setLayout(new BorderLayout());
+        displayPanel.setPreferredSize(new Dimension(boardWidth, 120));
         displayPanel.add(displayLabel);
         frame.add(displayPanel, BorderLayout.NORTH);
 
