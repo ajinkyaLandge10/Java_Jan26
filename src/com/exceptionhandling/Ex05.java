@@ -1,13 +1,13 @@
 package com.exceptionhandling;
 
-public class Ex6 {
+public class Ex05 {
 
 	public static void main(String[] args) {
 		
 		System.out.println("1");
 		try {
 			System.out.println("2");
-			int a = 100, b = 0, c;
+			int a = 100, b = 2, c;
 			System.out.println("3");
 			c = a / b;
 			System.out.println("4");

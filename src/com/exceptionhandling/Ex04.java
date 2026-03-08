@@ -3,22 +3,22 @@ package com.exceptionhandling;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class Ex3 {
+public class Ex04 {
 
 	public static void main(String[] args) {
 		
 		try {
 			FileInputStream fis = new FileInputStream("d:/abc.txt");
-		} catch (Exception e) {
-			System.out.println(e);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
 		
 		System.out.println("\n");
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (Exception e) {
-			System.out.println(e);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		
 		System.out.println("\n");
@@ -28,8 +28,8 @@ public class Ex3 {
 			c= a/b;
 			System.out.println(c);
 		}
-		catch(Exception e) {
-			System.out.println(e);
+		catch(ArithmeticException e) {
+			e.printStackTrace();
 		}
 		
 		System.out.println("\n");
@@ -37,8 +37,8 @@ public class Ex3 {
 			String str = null;
 			System.out.println(str.length());
 		}
-		catch(Exception e) {
-			System.out.println(e);
+		catch(NullPointerException e) {
+			e.printStackTrace();
 		}
 
 

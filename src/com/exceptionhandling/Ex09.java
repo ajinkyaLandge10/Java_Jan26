@@ -3,7 +3,7 @@ package com.exceptionhandling;
 // Finally Block - we can use it directly with try
 //				 - Used to close resources
 
-public class Ex9 {
+public class Ex09 {
 
 	public static void main(String[] args) {
 

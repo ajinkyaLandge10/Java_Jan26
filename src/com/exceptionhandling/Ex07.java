@@ -2,7 +2,7 @@ package com.exceptionhandling;
 
 // Ways To Print Exceptions
 
-public class Ex7 {
+public class Ex07 {
 
 	public static void main(String[] args) {
 
