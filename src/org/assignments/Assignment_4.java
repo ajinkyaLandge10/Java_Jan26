@@ -1,87 +1,89 @@
 package org.assignments;
 
-public class Assignment_4 {
+/* Methods in Object Class-
 
-	
-	public static void main(String[] args) throws CloneNotSupportedException {
-		
-//		1] public final native Class<?> getClass();
-//		-getClass() returns the runtime class (actual class type) of the object,
-		
-		String S = "Hello";
-		System.out.println(S.getClass());
-		
-		Integer I = 321;
-		System.out.println(I.getClass());
-		
-		
-//		2] public native int hashCode();
-//		- Returns an integer value that represents an object.
-//		- used in collection to store and find objects
-		
-		String a = "Hello Java";
-		String b = "Hello Java";
-		System.out.println(a.hashCode());
-		System.out.println(b.hashCode()); 
-		
-		
-//		3] public boolean equals(Object obj) {
-//	        return (this == obj);
-//	       }
-		
-		String a1 = new String("Java");
-		String b1 = new String("Java");
+01] - toString() - Returns a string representation of the object (usually class name + hashcode).
+02] - equals(Object obj) - Compares two objects to check if they are logically equal.
+03] - hashCode() - Returns a unique hash value used in hashing collections like HashMap.
+04] - getClass() - Returns the runtime class information of the object.
+05] - clone() - Creates and returns a copy of the object.
+06] - finalize() - Called by the garbage collector before destroying the object (deprecated now).
+07] - wait() - Causes the current thread to wait until another thread notifies it.
+08] - wait(long timeout) - Makes the thread wait for a specific time or until notified.
+09] - wait(long timeout, int nanos) - Makes the thread wait with millisecond and nanosecond precision.
+10] - notify() - Wakes up one thread waiting on the object's monitor.
+11] - notifyAll() - Wakes up all waiting threads on the object's monitor.
 
-		System.out.println(a1.equals(b1)); // true (String overrides equals)
-		System.out.println(a1 == b1);      // false (different objects)
-		
-//		4] protected native Object clone() throws CloneNotSupportedException;
-//		clone() creates and returns a copy of the current object
-		
-//		class Test implements Cloneable {
-//		    int x = 10;
-//
-//		    public static void main(String[] args) throws Exception {
-//		        Test t1 = new Test();
-//		        Test t2 = (Test) t1.clone();
-//		        System.out.println(t2.x); // 10
-//		    }
-//		}
+*/
 
-//		5] public String toString() {
-//	        return getClass().getName() + "@" + Integer.toHexString(hashCode());
-//	    }
-//		-returns a string representation of the object containing the class name and its hash code.
+class Assignment_4 implements Cloneable {
+	int value = 10;
 
-//		class Test {
-//		    public static void main(String[] args) {
-//		        Test t = new Test();
-//		        System.out.println(t.toString());
-//		    }
-//		}
-//		O/P - Test@15db9742
-		
-//		6] public final native void notify();
-//		- notify() is used in thread communication.
-//		  It wakes up one thread that is waiting on that object.
-		
-//		7] public final native void notifyAll();
-//		- notifyAll() wakes up all threads that are waiting on that object's monitor instead of just one.
-		
-//		8] public final void wait() throws InterruptedException {
-//	        wait(0L);
-//	    }
-//		- wait() makes the current thread pause and release the object's lock until another thread calls notify() or notifyAll().
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	// overriding toString()
+	public String toString() {
+		return "Demo object with value = " + value;
 	}
 
+	// overriding equals()
+	public boolean equals(Object obj) {
+		Assignment_4 d = (Assignment_4) obj;
+		return this.value == d.value;
+	}
+
+	// overriding clone()
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+	// overriding finalize()
+	protected void finalize() {
+		System.out.println("Finalize method called");
+	}
+
+	public static void main(String[] args) throws Exception {
+
+		Assignment_4 obj1 = new Assignment_4();
+		Assignment_4 obj2 = new Assignment_4();
+
+		// toString()
+		System.out.println(obj1.toString());
+
+		// equals()
+		System.out.println("Objects equal: " + obj1.equals(obj2));
+
+		// hashCode()
+		System.out.println("Hashcode of obj1: " + obj1.hashCode());
+
+		// getClass()
+		System.out.println("Class name: " + obj1.getClass());
+
+		// clone()
+		Assignment_4 obj3 = (Assignment_4) obj1.clone();
+		System.out.println("Cloned object: " + obj3);
+
+		// wait(), notify(), notifyAll()
+		Thread t1 = new Thread(() -> {
+			synchronized (obj1) {
+				try {
+					System.out.println("Thread waiting...");
+					obj1.wait(2000); // wait with timeout
+					System.out.println("Thread resumed");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
+		Thread t2 = new Thread(() -> {
+			synchronized (obj1) {
+				System.out.println("Thread notifying...");
+				obj1.notify();
+				obj1.notifyAll();
+			}
+		});
+
+		t1.start();
+		Thread.sleep(500);
+		t2.start();
+	}
 }
