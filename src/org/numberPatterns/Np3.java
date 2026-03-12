@@ -1,13 +1,13 @@
-package com.alphabetPatterns;
+package org.numberPatterns;
 
-public class Ap1 {
+public class Np3 {
 
 	public static void main(String[] args) {
+		int count = 0;
 		for (int i = 1; i <= 5; i++) {
-			char ch = 'A';
 			for (int j = 1; j <= i; j++) {
-				System.out.print(ch + " ");
-				ch++;
+				count++;
+				System.out.print(count + " ");
 			}
 			System.out.println();
 		}

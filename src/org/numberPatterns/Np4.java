@@ -1,4 +1,4 @@
-package com.numberPatterns;
+package org.numberPatterns;
 
 public class Np4 {
 

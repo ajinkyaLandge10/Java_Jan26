@@ -1,15 +1,15 @@
-package com.alphabetPatterns;
+package org.alphabetPatterns;
 
-public class Ap2 {
+public class Ap1 {
 
 	public static void main(String[] args) {
-		char ch = 'A';
 		for (int i = 1; i <= 5; i++) {
+			char ch = 'A';
 			for (int j = 1; j <= i; j++) {
 				System.out.print(ch + " ");
+				ch++;
 			}
 			System.out.println();
-			ch++;
 		}
 
 	}
